@@ -2,7 +2,7 @@
 
 A simple application built with Preact, TypeScript, Vite, and Cloudflare Workers to help users explore mortgage payment scenarios.
 
-You can view a deployed version at https://mortgage-explorer.lkbm.workers.dev/
+You can view a deployed version at https://mortgage-explorer.lucamasters.com/
 
 For more details of the structure, see https://github.com/lkbm/workers_kv_scaffolding
 
