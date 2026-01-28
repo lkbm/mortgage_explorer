@@ -326,7 +326,7 @@ function ScenarioColumn({
 
         {schedule.length > 12 && (
           <button class="btn-show-more" onClick={() => setShowAll(!showAll)}>
-            {showAll ? `Show Less` : `Show All ${schedule.length} Months`}
+            {showAll ? 'Show Less' : `Show All ${schedule.length} Months`}
           </button>
         )}
       </div>
@@ -347,11 +347,18 @@ export default function App() {
   }, []);
 
   // Build mortgage inputs from state
+  let parsedStartDate = new Date(state.startDate + '-01');
+  // Check valid date AND format to prevent 'X-01' -> 2001 issue
+  if (isNaN(parsedStartDate.getTime()) || !/^\d{4}-\d{2}$/.test(state.startDate)) {
+    parsedStartDate = new Date();
+    parsedStartDate.setDate(1);
+  }
+
   const mortgageInputs: MortgageInputs = {
     principal: state.principal,
     annualRate: state.annualRate,
     termMonths: state.termYears * 12,
-    startDate: new Date(state.startDate + '-01'),
+    startDate: parsedStartDate,
     extraMonthlyPayment: state.extraMonthlyPayment,
   };
 
@@ -438,6 +445,7 @@ export default function App() {
             <input
               type="month"
               value={state.startDate}
+              placeholder="YYYY-MM"
               onInput={(e) => updateState({ startDate: e.currentTarget.value })}
             />
           </div>

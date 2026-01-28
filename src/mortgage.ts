@@ -168,6 +168,9 @@ export function formatCurrencyPrecise(amount: number): string {
  * Format date for display
  */
 export function formatDate(date: Date): string {
+  if (isNaN(date.getTime())) {
+    return 'Invalid Date';
+  }
   return new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'short',
