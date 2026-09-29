@@ -63,8 +63,7 @@ export function generateAmortizationSchedule(
   let remainingBalance = principal;
 
   for (let month = 1; month <= termMonths && remainingBalance > 0.01; month++) {
-    const date = new Date(startDate);
-    date.setMonth(date.getMonth() + month - 1);
+    const date = new Date(startDate.getFullYear(), startDate.getMonth() + month - 1, 1);
 
     // Calculate interest for this month
     const interestPaid = remainingBalance * monthlyRate;

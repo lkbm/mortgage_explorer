@@ -347,7 +347,8 @@ export default function App() {
   }, []);
 
   // Build mortgage inputs from state
-  let parsedStartDate = new Date(state.startDate + '-01');
+  const [startYear, startMonth] = state.startDate.split('-').map(Number);
+  let parsedStartDate = new Date(startYear, (startMonth || 1) - 1, 1);
   // Check valid date AND format to prevent 'X-01' -> 2001 issue
   if (isNaN(parsedStartDate.getTime()) || !/^\d{4}-\d{2}$/.test(state.startDate)) {
     parsedStartDate = new Date();
