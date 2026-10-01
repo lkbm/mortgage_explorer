@@ -26,3 +26,4 @@ dist-ssr
 .wrangler
 
 bundle-visualization.html
+.cloudflare
