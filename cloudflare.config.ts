@@ -3,7 +3,7 @@ import { bindings, defineConfig } from "cf/config";
 export default defineConfig({
 	worker: {
 		name: "mortgage-explorer",
-		compatibilityDate: "2024-01-01",
+		compatibilityDate: "2024-04-03",
 		entrypoint: "src/main.tsx",
 		assets: {
 			notFoundHandling: "404-page",

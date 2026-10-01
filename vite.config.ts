@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import preact from '@preact/preset-vite';
 import { visualizer } from 'rollup-plugin-visualizer';
+import { cloudflare } from '@cloudflare/vite-plugin';
 
 export default defineConfig({
-	plugins: [preact(), visualizer({ open: true, filename: 'bundle-visualization.html' })],
+	plugins: [preact(), cloudflare(), visualizer({ open: true, filename: 'bundle-visualization.html' })],
 	base: '/',
 	resolve: {
 		alias: {
